@@ -53,7 +53,7 @@ impl Style {
             }
         }
 
-        // The foreground and background colours, if specified, need to be
+        // The foreground and background colors, if specified, need to be
         // handled specially because the number codes are more complicated.
         // (see `write_background_code` and `write_foreground_code`)
         if let Some(bg) = self.background {
@@ -172,7 +172,7 @@ pub struct Suffix(Style);
 
 impl Style {
     /// The prefix bytes for this style. These are the bytes that tell the
-    /// terminal to use a different colour or font style.
+    /// terminal to use a different color or font style.
     ///
     /// # Examples
     ///
@@ -197,7 +197,7 @@ impl Style {
 
     /// The infix bytes between this style and `next` style. These are the bytes
     /// that tell the terminal to change the style to `next`. These may include
-    /// a reset followed by the next colour and style, depending on the two styles.
+    /// a reset followed by the next color and style, depending on the two styles.
     ///
     /// # Examples
     ///
@@ -221,7 +221,7 @@ impl Style {
     }
 
     /// The suffix for this style. These are the bytes that tell the terminal
-    /// to reset back to its normal colour and font style.
+    /// to reset back to its normal color and font style.
     ///
     /// # Examples
     ///
@@ -246,8 +246,8 @@ impl Style {
 }
 
 impl Color {
-    /// The prefix bytes for this colour as a `Style`. These are the bytes
-    /// that tell the terminal to use a different colour or font style.
+    /// The prefix bytes for this color as a `Style`. These are the bytes
+    /// that tell the terminal to use a different color or font style.
     ///
     /// See also [`Style::prefix`](struct.Style.html#method.prefix).
     ///
@@ -263,9 +263,9 @@ impl Color {
         Prefix(self.normal())
     }
 
-    /// The infix bytes between this colour and `next` colour. These are the bytes
-    /// that tell the terminal to use the `next` colour, or to do nothing if
-    /// the two colours are equal.
+    /// The infix bytes between this color and `next` color. These are the bytes
+    /// that tell the terminal to use the `next` color, or to do nothing if
+    /// the two colors are equal.
     ///
     /// See also [`Style::infix`](struct.Style.html#method.infix).
     ///
@@ -281,8 +281,8 @@ impl Color {
         Infix(self.normal(), next.normal())
     }
 
-    /// The suffix for this colour as a `Style`. These are the bytes that
-    /// tell the terminal to reset back to its normal colour and font style.
+    /// The suffix for this color as a `Style`. These are the bytes that
+    /// tell the terminal to reset back to its normal color and font style.
     ///
     /// See also [`Style::suffix`](struct.Style.html#method.suffix).
     ///

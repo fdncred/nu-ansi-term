@@ -1,4 +1,4 @@
-//! This is a library for controlling colours and formatting, such as
+//! This is a library for controlling colors and formatting, such as
 //! red bold text or blue underlined text, on ANSI terminals.
 //!
 //!
@@ -7,9 +7,9 @@
 //! There are three main types in this crate that you need to be
 //! concerned with: [`ANSIString`], [`Style`], and [`Color`].
 //!
-//! A `Style` holds stylistic information: foreground and background colours,
+//! A `Style` holds stylistic information: foreground and background colors,
 //! whether the text should be bold, or blinking, or other properties. The
-//! [`Color`] enum represents the available colours. And an [`ANSIString`] is a
+//! [`Color`] enum represents the available colors. And an [`ANSIString`] is a
 //! string paired with a [`Style`].
 //!
 //! [`Color`] is also available as an alias to `Color`.
@@ -42,7 +42,7 @@
 //!
 //! ## Bold, underline, background, and other styles
 //!
-//! For anything more complex than plain foreground colour changes, you need to
+//! For anything more complex than plain foreground color changes, you need to
 //! construct `Style` values themselves, rather than beginning with a `Color`.
 //! You can do this by chaining methods based on a new `Style`, created with
 //! [`Style::new()`]. Each method creates a new style that has that specific
@@ -57,7 +57,7 @@
 //! ```
 //!
 //! For brevity, these methods have also been implemented for `Color` values,
-//! so you can give your styles a foreground colour without having to begin with
+//! so you can give your styles a foreground color without having to begin with
 //! an empty `Style` value:
 //!
 //! ```
@@ -72,7 +72,7 @@
 //!
 //! The complete list of styles you can use are: [`bold`], [`dimmed`], [`italic`],
 //! [`underline`], [`blink`], [`reverse`], [`hidden`], [`strikethrough`], and [`on`] for
-//! background colours.
+//! background colors.
 //!
 //! In some cases, you may find it easier to change the foreground on an
 //! existing `Style` rather than starting from the appropriate `Color`.
@@ -103,10 +103,10 @@
 //! ```
 //!
 //!
-//! ## Extended colours
+//! ## Extended colors
 //!
-//! You can access the extended range of 256 colours by using the `Color::Fixed`
-//! variant, which takes an argument of the colour number to use. This can be
+//! You can access the extended range of 256 colors by using the `Color::Fixed`
+//! variant, which takes an argument of the color number to use. This can be
 //! included wherever you would use a `Color`:
 //!
 //! ```
@@ -117,11 +117,11 @@
 //! ```
 //!
 //! The first sixteen of these values are the same as the normal and bold
-//! standard colour variants. There’s nothing stopping you from using these as
-//! `Fixed` colours instead, but there’s nothing to be gained by doing so
+//! standard color variants. There’s nothing stopping you from using these as
+//! `Fixed` colors instead, but there’s nothing to be gained by doing so
 //! either.
 //!
-//! You can also access full 24-bit colour by using the `Color::RGB` variant,
+//! You can also access full 24-bit color by using the `Color::RGB` variant,
 //! which takes separate `u8` arguments for red, green, and blue:
 //!
 //! ```
