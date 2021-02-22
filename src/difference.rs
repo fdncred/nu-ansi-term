@@ -24,7 +24,7 @@ impl Difference {
     /// For example, to turn green text into green bold text, it's redundant
     /// to write a reset command then a second green+bold command, instead of
     /// just writing one bold command. This method should see that both styles
-    /// use the foreground colour green, and reduce it to a single command.
+    /// use the foreground color green, and reduce it to a single command.
     ///
     /// This method returns an enum value because it's not actually always
     /// possible to turn one style into another: for example, text could be

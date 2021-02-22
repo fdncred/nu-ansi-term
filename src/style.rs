@@ -15,10 +15,10 @@
     derive(serde::Deserialize, serde::Serialize)
 )]
 pub struct Style {
-    /// The style's foreground colour, if it has one.
+    /// The style's foreground color, if it has one.
     pub foreground: Option<Color>,
 
-    /// The style's background colour, if it has one.
+    /// The style's background color, if it has one.
     pub background: Option<Color>,
 
     /// Whether this style is bold.
@@ -36,7 +36,7 @@ pub struct Style {
     /// Whether this style is blinking.
     pub is_blink: bool,
 
-    /// Whether this style has reverse colours.
+    /// Whether this style has reverse colors.
     pub is_reverse: bool,
 
     /// Whether this style is hidden.
@@ -196,7 +196,7 @@ impl Style {
         }
     }
 
-    /// Returns a `Style` with the foreground colour property set.
+    /// Returns a `Style` with the foreground color property set.
     ///
     /// # Examples
     ///
@@ -213,7 +213,7 @@ impl Style {
         }
     }
 
-    /// Returns a `Style` with the background colour property set.
+    /// Returns a `Style` with the background color property set.
     ///
     /// # Examples
     ///
@@ -273,10 +273,10 @@ impl Default for Style {
     }
 }
 
-// ---- colours ----
+// ---- colors ----
 
-/// A colour is one specific type of ANSI escape code, and can refer
-/// to either the foreground or background colour.
+/// A color is one specific type of ANSI escape code, and can refer
+/// to either the foreground or background color.
 ///
 /// These use the standard numeric sequences.
 /// See <http://invisible-island.net/xterm/ctlseqs/ctlseqs.html>
@@ -288,7 +288,7 @@ impl Default for Style {
 pub enum Color {
     /// Color #0 (foreground code `30`, background code `40`).
     ///
-    /// This is not necessarily the background colour, and using it as one may
+    /// This is not necessarily the background color, and using it as one may
     /// render the text hard to read on terminals with dark backgrounds.
     Black,
 
@@ -339,27 +339,27 @@ pub enum Color {
 
     /// Color #7 (foreground code `37`, background code `47`).
     ///
-    /// As above, this is not necessarily the foreground colour, and may be
+    /// As above, this is not necessarily the foreground color, and may be
     /// hard to read on terminals with light backgrounds.
     White,
 
     /// Color #7 (foreground code `97`, background code `107`).
     LightGray,
 
-    /// A colour number from 0 to 255, for use in 256-colour terminal
+    /// A color number from 0 to 255, for use in 256-color terminal
     /// environments.
     ///
-    /// - Colours 0 to 7 are the `Black` to `White` variants respectively.
-    ///   These colours can usually be changed in the terminal emulator.
-    /// - Colours 8 to 15 are brighter versions of the eight colours above.
+    /// - colors 0 to 7 are the `Black` to `White` variants respectively.
+    ///   These colors can usually be changed in the terminal emulator.
+    /// - colors 8 to 15 are brighter versions of the eight colors above.
     ///   These can also usually be changed in the terminal emulator, or it
-    ///   could be configured to use the original colours and show the text in
+    ///   could be configured to use the original colors and show the text in
     ///   bold instead. It varies depending on the program.
-    /// - Colours 16 to 231 contain several palettes of bright colours,
+    /// - colors 16 to 231 contain several palettes of bright colors,
     ///   arranged in six squares measuring six by six each.
-    /// - Colours 232 to 255 are shades of grey from black to white.
+    /// - colors 232 to 255 are shades of grey from black to white.
     ///
-    /// It might make more sense to look at a [colour chart][cc].
+    /// It might make more sense to look at a [color chart][cc].
     ///
     /// [cc]: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
     Fixed(u8),
@@ -369,7 +369,7 @@ pub enum Color {
 }
 
 impl Color {
-    /// Returns a `Style` with the foreground colour set to this colour.
+    /// Returns a `Style` with the foreground color set to this color.
     ///
     /// # Examples
     ///
@@ -386,7 +386,7 @@ impl Color {
         }
     }
 
-    /// Returns a `Style` with the foreground colour set to this colour and the
+    /// Returns a `Style` with the foreground color set to this color and the
     /// bold property set.
     ///
     /// # Examples
@@ -405,7 +405,7 @@ impl Color {
         }
     }
 
-    /// Returns a `Style` with the foreground colour set to this colour and the
+    /// Returns a `Style` with the foreground color set to this color and the
     /// dimmed property set.
     ///
     /// # Examples
@@ -424,7 +424,7 @@ impl Color {
         }
     }
 
-    /// Returns a `Style` with the foreground colour set to this colour and the
+    /// Returns a `Style` with the foreground color set to this color and the
     /// italic property set.
     ///
     /// # Examples
@@ -443,7 +443,7 @@ impl Color {
         }
     }
 
-    /// Returns a `Style` with the foreground colour set to this colour and the
+    /// Returns a `Style` with the foreground color set to this color and the
     /// underline property set.
     ///
     /// # Examples
@@ -462,7 +462,7 @@ impl Color {
         }
     }
 
-    /// Returns a `Style` with the foreground colour set to this colour and the
+    /// Returns a `Style` with the foreground color set to this color and the
     /// blink property set.
     ///
     /// # Examples
@@ -481,7 +481,7 @@ impl Color {
         }
     }
 
-    /// Returns a `Style` with the foreground colour set to this colour and the
+    /// Returns a `Style` with the foreground color set to this color and the
     /// reverse property set.
     ///
     /// # Examples
@@ -500,7 +500,7 @@ impl Color {
         }
     }
 
-    /// Returns a `Style` with the foreground colour set to this colour and the
+    /// Returns a `Style` with the foreground color set to this color and the
     /// hidden property set.
     ///
     /// # Examples
@@ -519,7 +519,7 @@ impl Color {
         }
     }
 
-    /// Returns a `Style` with the foreground colour set to this colour and the
+    /// Returns a `Style` with the foreground color set to this color and the
     /// strikethrough property set.
     ///
     /// # Examples
@@ -538,8 +538,8 @@ impl Color {
         }
     }
 
-    /// Returns a `Style` with the foreground colour set to this colour and the
-    /// background colour property set to the given colour.
+    /// Returns a `Style` with the foreground color set to this color and the
+    /// background color property set to the given color.
     ///
     /// # Examples
     ///
@@ -559,7 +559,7 @@ impl Color {
 }
 
 impl From<Color> for Style {
-    /// You can turn a `Color` into a `Style` with the foreground colour set
+    /// You can turn a `Color` into a `Style` with the foreground color set
     /// with the `From` trait.
     ///
     /// ```
@@ -569,8 +569,8 @@ impl From<Color> for Style {
     /// assert_eq!(green_foreground, Color::Green.into());
     /// assert_eq!(green_foreground, Style::from(Color::Green));
     /// ```
-    fn from(colour: Color) -> Style {
-        colour.normal()
+    fn from(color: Color) -> Style {
+        color.normal()
     }
 }
 
@@ -581,7 +581,7 @@ mod serde_json_tests {
 
     #[test]
     fn colour_serialization() {
-        let colours = &[
+        let colors = &[
             Color::Red,
             Color::Blue,
             Color::RGB(123, 123, 123),
@@ -589,25 +589,25 @@ mod serde_json_tests {
         ];
 
         assert_eq!(
-            serde_json::to_string(&colours).unwrap(),
+            serde_json::to_string(&colors).unwrap(),
             String::from("[\"Red\",\"Blue\",{\"RGB\":[123,123,123]},{\"Fixed\":255}]")
         );
     }
 
     #[test]
     fn colour_deserialization() {
-        let colours = &[
+        let colors = &[
             Color::Red,
             Color::Blue,
             Color::RGB(123, 123, 123),
             Color::Fixed(255),
         ];
 
-        for colour in colours.into_iter() {
-            let serialized = serde_json::to_string(&colour).unwrap();
+        for color in colors.into_iter() {
+            let serialized = serde_json::to_string(&color).unwrap();
             let deserialized: Color = serde_json::from_str(&serialized).unwrap();
 
-            assert_eq!(colour, &deserialized);
+            assert_eq!(color, &deserialized);
         }
     }
 

@@ -5,7 +5,7 @@ authors = [
     "Josh Triplett <josh@joshtriplett.org>",
     "The Nu Project Contributors",
 ]
-description = "Library for ANSI terminal colours and styles (bold, underline)"
+description = "Library for ANSI terminal colors and styles (bold, underline)"
 edition = "2018"
 license = "MIT"
 name = "nu_ansi_term"

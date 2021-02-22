@@ -161,7 +161,7 @@ pub fn ANSIByteStrings<'a>(arg: &'a [ANSIByteString<'a>]) -> ANSIByteStrings<'a>
 // ---- paint functions ----
 
 impl Style {
-    /// Paints the given text with this colour, returning an ANSI string.
+    /// Paints the given text with this color, returning an ANSI string.
     #[must_use]
     pub fn paint<'a, I, S: 'a + ToOwned + ?Sized>(self, input: I) -> ANSIGenericString<'a, S>
     where
@@ -176,7 +176,7 @@ impl Style {
 }
 
 impl Color {
-    /// Paints the given text with this colour, returning an ANSI string.
+    /// Paints the given text with this color, returning an ANSI string.
     /// This is a short-cut so you don’t have to use `Blue.normal()` just
     /// to get blue text.
     ///

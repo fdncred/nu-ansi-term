@@ -2,7 +2,7 @@
 
 > This is a copy of rust-ansi-term but with Color change to Color and light foreground colors added (90-97) as well as light background colors added (100-107).
 
-This is a library for controlling colours and formatting, such as red bold text or blue underlined text, on ANSI terminals.
+This is a library for controlling colors and formatting, such as red bold text or blue underlined text, on ANSI terminals.
 
 ### [View the Rustdoc](https://docs.rs/nu_ansi_term/)
 
@@ -19,8 +19,8 @@ nu_ansi_term = "0.13"
 
 There are three main types in this crate that you need to be concerned with: `ANSIString`, `Style`, and `Color`.
 
-A `Style` holds stylistic information: foreground and background colours, whether the text should be bold, or blinking, or other properties.
-The `Color` enum represents the available colours.
+A `Style` holds stylistic information: foreground and background colors, whether the text should be bold, or blinking, or other properties.
+The `Color` enum represents the available colors.
 And an `ANSIString` is a string paired with a `Style`.
 
 `Color` is also available as an alias to `Color`.
@@ -54,7 +54,7 @@ let enabled = nu_ansi_term::enable_ansi_support();
 
 ## Bold, underline, background, and other styles
 
-For anything more complex than plain foreground colour changes, you need to construct `Style` values themselves, rather than beginning with a `Color`.
+For anything more complex than plain foreground color changes, you need to construct `Style` values themselves, rather than beginning with a `Color`.
 You can do this by chaining methods based on a new `Style`, created with `Style::new()`.
 Each method creates a new style that has that specific property set.
 For example:
@@ -67,7 +67,7 @@ println!("How about some {} and {}?",
          Style::new().underline().paint("underline"));
 ```
 
-For brevity, these methods have also been implemented for `Color` values, so you can give your styles a foreground colour without having to begin with an empty `Style` value:
+For brevity, these methods have also been implemented for `Color` values, so you can give your styles a foreground color without having to begin with an empty `Style` value:
 
 ```rust
 use nu_ansi_term::Color::{Blue, Yellow};
@@ -80,7 +80,7 @@ println!("Yellow on blue: {}", Yellow.on(Blue).paint("wow!"));
 ```
 
 The complete list of styles you can use are:
-`bold`, `dimmed`, `italic`, `underline`, `blink`, `reverse`, `hidden`, and `on` for background colours.
+`bold`, `dimmed`, `italic`, `underline`, `blink`, `reverse`, `hidden`, and `on` for background colors.
 
 In some cases, you may find it easier to change the foreground on an existing `Style` rather than starting from the appropriate `Color`.
 You can do this using the `fg` method:
@@ -104,9 +104,9 @@ Red.normal().paint("yet another red string");
 Style::default().paint("a completely regular string");
 ```
 
-## Extended colours
+## Extended colors
 
-You can access the extended range of 256 colours by using the `Color::Fixed` variant, which takes an argument of the colour number to use.
+You can access the extended range of 256 colors by using the `Color::Fixed` variant, which takes an argument of the color number to use.
 This can be included wherever you would use a `Color`:
 
 ```rust
@@ -116,10 +116,10 @@ Fixed(134).paint("A sort of light purple");
 Fixed(221).on(Fixed(124)).paint("Mustard in the ketchup");
 ```
 
-The first sixteen of these values are the same as the normal and bold standard colour variants.
-There’s nothing stopping you from using these as `Fixed` colours instead, but there’s nothing to be gained by doing so either.
+The first sixteen of these values are the same as the normal and bold standard color variants.
+There’s nothing stopping you from using these as `Fixed` colors instead, but there’s nothing to be gained by doing so either.
 
-You can also access full 24-bit colour by using the `Color::RGB` variant, which takes separate `u8` arguments for red, green, and blue:
+You can also access full 24-bit color by using the `Color::RGB` variant, which takes separate `u8` arguments for red, green, and blue:
 
 ```rust
 use nu_ansi_term::Color::RGB;
